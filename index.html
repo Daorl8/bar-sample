@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOCTURNE · 녹턴 — 심야 시그니처 칵테일 바</title>
+<meta name="description" content="밤이 깊을수록 선명해지는 한 잔. 심야 시그니처 칵테일 바 NOCTURNE 녹턴.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NOCTURNE 녹턴">
+<meta property="og:title" content="NOCTURNE · 녹턴 — 심야 시그니처 칵테일 바">
+<meta property="og:description" content="밤이 깊을수록 선명해지는 한 잔. 심야 시그니처 칵테일 바.">
+<meta property="og:url" content="https://bar-sample.lgt3232.workers.dev/">
+<meta property="og:image" content="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=1200&h=630&q=80">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NOCTURNE · 녹턴 — 심야 시그니처 칵테일 바">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=1200&h=630&q=80">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230A0A11'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='bold' fill='%23FF2E74' text-anchor='middle'>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+:root{
+  --bg:#0A0A11; --bg2:#11111C; --panel:#15131F; --panel2:#1B1828;
+  --ink:#F2EEE6; --muted:#9C97AB; --faint:#6E6A7E;
+  --neon:#FF2E74; --neon-2:#27E0D4; --gold:#C7A56B; --wine:#4A1230;
+  --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
+  --glow:0 0 9px rgba(255,46,116,.55), 0 0 26px rgba(255,46,116,.32);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:74px;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:"Space Grotesk","Pretendard",sans-serif;line-height:1.65;word-break:keep-all;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.serif{font-family:"Fraunces",serif}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+.kicker{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--neon);font-weight:500}
+.neon{color:#fff;text-shadow:var(--glow)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:40px;font-weight:500;font-size:.92rem;letter-spacing:.02em;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease;cursor:pointer;border:1px solid transparent}
+.btn--neon{background:var(--neon);color:#0A0A11;box-shadow:0 0 0 rgba(255,46,116,0)}
+.btn--neon:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,46,116,.4)}
+.btn--ghost{border-color:var(--line2);color:var(--ink);background:transparent}
+.btn--ghost:hover{border-color:var(--neon);color:#fff;box-shadow:var(--glow)}
+
+/* reveal */
+.reveal{opacity:1;transform:none}
+@media(min-width:881px){
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .45s ease,transform .45s ease}
+  .reveal.in{opacity:1;transform:none}
+}
+
+/* 상단바 */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:16px 28px;background:linear-gradient(180deg,rgba(10,10,17,.92),rgba(10,10,17,.55) 70%,transparent);transition:background .3s ease}
+.topbar.solid{background:rgba(10,10,17,.95);border-bottom:1px solid var(--line)}
+.brand{font-family:"Fraunces",serif;font-weight:500;font-size:1.32rem;letter-spacing:.06em;color:#fff;text-shadow:var(--glow)}
+.brand b{color:var(--neon);text-shadow:none}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{font-size:.86rem;color:var(--muted);transition:color .2s}
+.nav a:hover{color:#fff}
+.status-pill{display:inline-flex;align-items:center;gap:7px;font-size:.76rem;color:var(--ink);padding:6px 13px;border:1px solid var(--line2);border-radius:30px;background:rgba(255,255,255,.03)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--faint);box-shadow:0 0 0 rgba(0,0,0,0)}
+.dot.open{background:#3DDC84;box-shadow:0 0 8px rgba(61,220,132,.8)}
+.dot.soon{background:var(--gold);box-shadow:0 0 8px rgba(199,165,107,.8)}
+.dot.closed{background:var(--faint)}
+.nav-cta{font-size:.84rem;color:#fff;border:1px solid var(--neon);padding:8px 18px;border-radius:30px;transition:.2s}
+.nav-cta:hover{background:var(--neon);color:#0A0A11;box-shadow:var(--glow)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+.burger span{width:24px;height:2px;background:#fff;display:block}
+
+/* 히어로 */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+.hero__bg{position:absolute;inset:0;background:#08080e}
+.hero__bg img{width:100%;height:100%;object-fit:cover;opacity:.34;filter:saturate(1.1) contrast(1.05)}
+.hero__bg::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 78% 18%,rgba(255,46,116,.20),transparent 46%),radial-gradient(90% 80% at 12% 90%,rgba(39,224,212,.13),transparent 50%),linear-gradient(180deg,rgba(8,8,14,.55),rgba(8,8,14,.86))}
+.hero__inner{position:relative;z-index:2;padding:120px 0 70px}
+.hero__inner .kicker{margin-bottom:22px}
+.hero h1{font-family:"Fraunces",serif;font-weight:400;font-size:clamp(3.4rem,11vw,8rem);line-height:.96;letter-spacing:.02em;color:#fff;text-shadow:0 0 14px rgba(255,46,116,.5),0 0 40px rgba(255,46,116,.3)}
+.hero h1 em{font-style:italic;color:var(--neon);text-shadow:0 0 16px rgba(255,46,116,.7),0 0 48px rgba(255,46,116,.4)}
+.hero__ko{font-size:1.05rem;letter-spacing:.5em;color:var(--muted);margin-top:18px;padding-left:.5em}
+.hero__tag{font-size:clamp(1.05rem,2.4vw,1.4rem);color:var(--ink);max-width:30ch;margin:26px 0 0;line-height:1.5;font-weight:300}
+.hero__meta{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin-top:30px;color:var(--muted);font-size:.9rem}
+.hero__meta .status-pill{font-size:.84rem;padding:8px 15px}
+.hero__btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.scroll-cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;color:var(--faint);font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-cue::after{content:"";width:1px;height:34px;background:linear-gradient(var(--neon),transparent)}
+
+/* 섹션 공통 */
+section{position:relative}
+.sec{padding:104px 0}
+.sec-head{margin-bottom:50px}
+.sec-head h2{font-family:"Fraunces",serif;font-weight:400;font-size:clamp(2rem,5vw,3.1rem);line-height:1.06;margin-top:14px;letter-spacing:.01em}
+.sec-head p{color:var(--muted);margin-top:14px;max-width:48ch}
+
+/* 시그니처 칵테일 */
+#menu{background:linear-gradient(180deg,var(--bg),var(--bg2))}
+.cocktails{border-top:1px solid var(--line)}
+.ck{display:grid;grid-template-columns:1fr auto;gap:10px 22px;align-items:baseline;padding:26px 4px;border-bottom:1px solid var(--line);transition:background .25s ease,padding .25s ease}
+.ck:hover{background:rgba(255,46,116,.05);padding-left:14px;padding-right:14px}
+.ck__name{font-family:"Fraunces",serif;font-size:1.42rem;font-weight:500;color:#fff;transition:text-shadow .25s ease}
+.ck:hover .ck__name{text-shadow:var(--glow)}
+.ck__en{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--neon-2);margin-left:10px;font-family:"Space Grotesk"}
+.ck__desc{grid-column:1/2;color:var(--muted);font-size:.94rem;margin-top:4px}
+.ck__price{font-family:"Fraunces",serif;font-size:1.2rem;color:var(--gold);white-space:nowrap}
+.ck__abv{display:block;font-family:"Space Grotesk";font-size:.72rem;color:var(--faint);text-align:right;letter-spacing:.08em;margin-top:2px}
+.menu-note{margin-top:26px;color:var(--faint);font-size:.82rem}
+
+/* 공간 갤러리 */
+#space{background:var(--bg)}
+.gal{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:150px;gap:12px}
+.gal figure{position:relative;overflow:hidden;border-radius:6px;background:linear-gradient(135deg,#1a1726,#0f0d16)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease,filter .6s ease;filter:saturate(.95) brightness(.92)}
+.gal figure:hover img{transform:scale(1.05);filter:saturate(1.15) brightness(1.05)}
+.gal figure::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px var(--line);border-radius:6px;pointer-events:none}
+.g1{grid-column:1/7;grid-row:span 3}
+.g2{grid-column:7/13;grid-row:span 2}
+.g3{grid-column:7/10;grid-row:span 1}
+.g4{grid-column:10/13;grid-row:span 1}
+.gal figcaption{position:absolute;left:14px;bottom:12px;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.8);z-index:2}
+
+/* 운영시간 */
+#hours{background:linear-gradient(180deg,var(--bg),var(--panel))}
+.hours-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:start}
+.htable{width:100%;border-collapse:collapse}
+.htable tr{border-bottom:1px solid var(--line)}
+.htable td{padding:16px 4px;font-size:1rem}
+.htable td:first-child{color:var(--ink);font-weight:500;width:34%}
+.htable td:last-child{color:var(--muted);text-align:right;font-family:"Fraunces",serif;font-size:1.05rem}
+.htable tr.off td:last-child{color:var(--neon)}
+.htable .lo{display:block;font-family:"Space Grotesk";font-size:.74rem;color:var(--faint);letter-spacing:.04em}
+.hours-card{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:30px}
+.hours-card .big-status{display:flex;align-items:center;gap:11px;font-family:"Fraunces",serif;font-size:1.5rem;color:#fff}
+.hours-card .big-status .dot{width:11px;height:11px}
+.hours-card .sub{color:var(--muted);font-size:.92rem;margin-top:10px}
+.hours-card .line{height:1px;background:var(--line);margin:22px 0}
+.hours-card .row{display:flex;justify-content:space-between;font-size:.9rem;padding:5px 0}
+.hours-card .row span:first-child{color:var(--faint)}
+
+/* 예약 문의 */
+#book{background:var(--panel)}
+.book-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:54px;align-items:start}
+.book-info h3{font-family:"Fraunces",serif;font-size:1.4rem;margin-bottom:14px}
+.book-info p{color:var(--muted);font-size:.95rem;margin-bottom:22px}
+.book-info .contact-row{display:flex;align-items:center;gap:12px;padding:13px 0;border-top:1px solid var(--line);font-size:.95rem}
+.book-info .contact-row b{color:var(--faint);font-weight:400;width:58px;font-size:.82rem;letter-spacing:.06em}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form .full{grid-column:1/3}
+.field label{display:block;font-size:.76rem;color:var(--faint);letter-spacing:.06em;margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;background:var(--bg2);border:1px solid var(--line2);border-radius:8px;padding:13px 14px;color:var(--ink);font-family:inherit;font-size:.94rem;transition:border .2s,box-shadow .2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--neon);box-shadow:0 0 0 3px rgba(255,46,116,.16)}
+.field textarea{resize:vertical;min-height:96px}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%239C97AB' stroke-width='1.6'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+
+/* 찾아오기 */
+#find{background:var(--bg)}
+.find-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch}
+.map-box{position:relative;min-height:340px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0f0d16}
+.map-box::before{content:"📍 지도";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--faint);font-size:.85rem;letter-spacing:.2em}
+.map-box iframe{position:relative;width:100%;height:100%;min-height:340px;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.7) brightness(.9)}
+.find-info{display:flex;flex-direction:column;justify-content:center}
+.find-info .addr{font-family:"Fraunces",serif;font-size:1.3rem;margin-bottom:6px}
+.find-info .row{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:.94rem;color:var(--muted)}
+.find-info .row b{color:var(--faint);font-weight:400;width:54px;font-size:.82rem}
+.find-info .map-links{display:flex;gap:12px;margin-top:22px}
+
+/* 푸터 */
+footer{background:var(--bg);border-top:1px solid var(--line);padding:54px 0 120px}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:flex-end}
+.foot__brand{font-family:"Fraunces",serif;font-size:1.5rem;color:#fff;text-shadow:var(--glow)}
+.foot__brand b{color:var(--neon);text-shadow:none}
+.foot small{color:var(--faint);font-size:.8rem;line-height:1.9;display:block;margin-top:10px}
+.foot__sns{display:flex;gap:18px}
+.foot__sns a{font-size:.84rem;color:var(--muted);transition:color .2s}
+.foot__sns a:hover{color:var(--neon)}
+
+/* 모바일 하단바 */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;grid-template-columns:1fr 1.3fr;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(13,12,20,.96);border-top:1px solid var(--line2)}
+.mbar a{display:flex;align-items:center;justify-content:center;gap:7px;padding:13px;border-radius:30px;font-size:.92rem;font-weight:500}
+.mbar .m-call{border:1px solid var(--line2);color:var(--ink)}
+.mbar .m-book{background:var(--neon);color:#0A0A11}
+
+@media(max-width:880px){
+  .nav,.nav-cta{display:none}
+  .topbar .status-pill{display:none}
+  .burger{display:flex}
+  .drawer{position:fixed;inset:0;z-index:55;background:rgba(8,8,14,.98);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;opacity:0;pointer-events:none;transition:opacity .3s}
+  .drawer.open{opacity:1;pointer-events:auto}
+  .drawer a{font-family:"Fraunces",serif;font-size:1.7rem;color:var(--ink)}
+  .drawer .status-pill{margin-top:10px}
+  .hours-grid,.book-grid,.find-grid{grid-template-columns:1fr;gap:30px}
+  .form{grid-template-columns:1fr}.form .full{grid-column:1}
+  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px}
+  .g1{grid-column:1/3;grid-row:span 2}.g2{grid-column:1/3;grid-row:span 2}.g3{grid-column:1/2}.g4{grid-column:2/3}
+  .mbar{display:grid}
+  body{padding-bottom:72px}
+  .sec{padding:74px 0}
+  .ck{grid-template-columns:1fr}.ck__price{text-align:left}.ck__abv{text-align:left}
+}
+@media(max-width:880px){.drawer{display:none}.drawer.open{display:flex}}
+</style>
+</head>
+<body>
+
+<div class="topbar" id="topbar">
+  <a href="#top" class="brand">NOCTUR<b>N</b>E</a>
+  <nav class="nav">
+    <a href="#menu">시그니처</a>
+    <a href="#space">공간</a>
+    <a href="#hours">운영시간</a>
+    <a href="#find">찾아오기</a>
+    <span class="status-pill"><span class="dot" id="navDot"></span><span id="navStatus">영업 정보</span></span>
+    <a href="#book" class="nav-cta">예약 문의</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+</div>
+
+<div class="drawer" id="drawer">
+  <a href="#menu">시그니처</a>
+  <a href="#space">공간</a>
+  <a href="#hours">운영시간</a>
+  <a href="#find">찾아오기</a>
+  <a href="#book">예약 문의</a>
+  <span class="status-pill"><span class="dot" id="navDot2"></span><span id="navStatus2">영업 정보</span></span>
+</div>
+
+<!-- 히어로 -->
+<header class="hero" id="top">
+  <div class="hero__bg">
+    <img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=1600&q=80" alt="어두운 조명의 칵테일 바 내부" loading="eager">
+  </div>
+  <div class="wrap hero__inner">
+    <div class="kicker">서울 한남 · 심야 칵테일 바</div>
+    <h1 class="serif">Past<br>mid<em>n</em>ight</h1>
+    <div class="hero__ko">녹턴 · NOCTURNE</div>
+    <p class="hero__tag">밤이 깊을수록 선명해지는 한 잔. 자정을 넘겨 머무는 사람들을 위한 시그니처 바.</p>
+    <div class="hero__meta">
+      <span class="status-pill"><span class="dot" id="heroDot"></span><span id="heroStatus">영업 정보 확인 중</span></span>
+      <span id="heroToday">·</span>
+    </div>
+    <div class="hero__btns">
+      <a href="#book" class="btn btn--neon">예약 문의</a>
+      <a href="#menu" class="btn btn--ghost">시그니처 보기</a>
+    </div>
+  </div>
+  <div class="scroll-cue">SCROLL</div>
+</header>
+
+<!-- 시그니처 칵테일 -->
+<section class="sec" id="menu">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Signature</div>
+      <h2 class="serif">바텐더가 그리는<br>오늘의 시그니처</h2>
+      <p>계절과 그날의 무드로 완성하는 시그니처 칵테일. 취향을 말씀해 주시면 한 잔을 맞춰 드립니다.</p>
+    </div>
+    <div class="cocktails reveal">
+      <div class="ck">
+        <div><span class="ck__name">녹턴 No.1<span class="ck__en">Nocturne No.1</span></span><div class="ck__desc">다크 럼 · 콜드브루 · 카카오 비터 — 깊고 묵직한 한 잔</div></div>
+        <div><span class="ck__price">₩18,000</span><span class="ck__abv">ABV 22%</span></div>
+      </div>
+      <div class="ck">
+        <div><span class="ck__name">자정의 정원<span class="ck__en">Midnight Garden</span></span><div class="ck__desc">진 · 엘더플라워 · 바질 · 라임 — 허브 향의 산뜻함</div></div>
+        <div><span class="ck__price">₩17,000</span><span class="ck__abv">ABV 18%</span></div>
+      </div>
+      <div class="ck">
+        <div><span class="ck__name">네온 슬립<span class="ck__en">Neon Sleep</span></span><div class="ck__desc">보드카 · 라이치 · 자몽 · 토닉 — 가볍고 환한 시그니처</div></div>
+        <div><span class="ck__price">₩16,000</span><span class="ck__abv">ABV 16%</span></div>
+      </div>
+      <div class="ck">
+        <div><span class="ck__name">스모크드 올드패션드<span class="ck__en">Smoked Old Fashioned</span></span><div class="ck__desc">버번 · 메이플 · 스모크 — 잔에 머무는 훈연 향</div></div>
+        <div><span class="ck__price">₩19,000</span><span class="ck__abv">ABV 35%</span></div>
+      </div>
+      <div class="ck">
+        <div><span class="ck__name">미드나잇 모먼트<span class="ck__en">Non-Alcoholic</span></span><div class="ck__desc">히비스커스 · 유자 · 소다 — 무알콜 시그니처</div></div>
+        <div><span class="ck__price">₩11,000</span><span class="ck__abv">0%</span></div>
+      </div>
+    </div>
+    <p class="menu-note">* 위 메뉴·가격은 샘플 예시입니다. 시즌 메뉴와 안주 리스트는 매장에서 안내해 드립니다.</p>
+  </div>
+</section>
+
+<!-- 공간 -->
+<section class="sec" id="space">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">The Space</div>
+      <h2 class="serif">어둠이 편안한 자리</h2>
+      <p>낮게 깔린 조명과 바 카운터, 깊은 좌석. 혼자여도 둘이어도 좋은 심야의 공간.</p>
+    </div>
+    <div class="gal reveal">
+      <figure class="g1"><img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=900&q=80" alt="은은한 조명의 바 공간" loading="lazy"><figcaption>Bar Counter</figcaption></figure>
+      <figure class="g2"><img src="https://images.unsplash.com/photo-1485872299829-c673f5194813?auto=format&fit=crop&w=900&q=80" alt="칵테일을 즐기는 사람들" loading="lazy"><figcaption>Seating</figcaption></figure>
+      <figure class="g3"><img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80" alt="올드패션드 칵테일" loading="lazy"><figcaption>Signature</figcaption></figure>
+      <figure class="g4"><img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80" alt="다크 베리 시그니처 칵테일" loading="lazy"><figcaption>Cocktail</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 운영시간 -->
+<section class="sec" id="hours">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Hours</div>
+      <h2 class="serif">언제 문을 여나요</h2>
+    </div>
+    <div class="hours-grid reveal">
+      <table class="htable">
+        <tr><td>화 – 목</td><td>18:00 – 01:00 <span class="lo">L.O 00:30</span></td></tr>
+        <tr><td>금 – 토</td><td>18:00 – 02:00 <span class="lo">L.O 01:30</span></td></tr>
+        <tr><td>일요일</td><td>17:00 – 24:00 <span class="lo">L.O 23:30</span></td></tr>
+        <tr class="off"><td>월요일</td><td>휴무</td></tr>
+      </table>
+      <div class="hours-card">
+        <div class="big-status"><span class="dot" id="cardDot"></span><span id="cardStatus">확인 중</span></div>
+        <div class="sub" id="cardSub">영업 정보를 불러오는 중입니다.</div>
+        <div class="line"></div>
+        <div class="row"><span>오늘</span><span id="cardToday">—</span></div>
+        <div class="row"><span>라스트오더</span><span id="cardLo">—</span></div>
+        <div class="row"><span>예약</span><span>전화 · 예약 문의</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 예약 문의 -->
+<section class="sec" id="book">
+  <div class="wrap">
+    <div class="book-grid">
+      <div class="book-info reveal">
+        <div class="kicker">Reservation</div>
+        <h3 class="serif" style="margin-top:14px">자리를 미리 잡아두세요</h3>
+        <p>2인 이상 단체석·바 카운터석 예약을 받습니다. 아래로 남겨 주시면 확인 후 연락드립니다. (당일 예약은 전화가 빨라요.)</p>
+        <div class="contact-row"><b>전화</b><a href="tel:010-0000-0000">010-0000-0000</a></div>
+        <div class="contact-row"><b>인스타</b><a href="https://instagram.com" target="_blank" rel="noopener">@nocturne.bar</a></div>
+        <div class="contact-row"><b>위치</b><span>서울 용산구 한남동 (예시)</span></div>
+      </div>
+      <form class="form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="field"><label>성함</label><input type="text" name="name" required></div>
+        <div class="field"><label>연락처</label><input type="tel" name="phone" inputmode="tel" required></div>
+        <div class="field"><label>방문 인원</label>
+          <select name="party"><option>1인</option><option>2인</option><option>3–4인</option><option>5인 이상</option></select>
+        </div>
+        <div class="field"><label>희망 날짜·시간</label><input type="text" name="datetime" placeholder="예) 6/20 21:00"></div>
+        <div class="field full"><label>요청 사항 (선택)</label><textarea name="msg" placeholder="바 카운터 희망 / 기념일 등"></textarea></div>
+        <div class="field full"><button type="submit" class="btn btn--neon" style="width:100%">예약 문의 보내기</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- 찾아오기 -->
+<section class="sec" id="find">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Find Us</div>
+      <h2 class="serif">찾아오는 길</h2>
+    </div>
+    <div class="find-grid reveal">
+      <div class="map-box">
+        <iframe title="NOCTURNE 위치 지도" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=127.0000%2C37.5320%2C127.0160%2C37.5420&layer=mapnik&marker=37.5370%2C127.0080"></iframe>
+      </div>
+      <div class="find-info">
+        <div class="addr serif">서울 용산구 한남대로 00길 0, B1</div>
+        <div class="row"><b>지하철</b><span>6호선 한남역 1번 출구 도보 6분 (예시)</span></div>
+        <div class="row"><b>주차</b><span>인근 유료 주차장 이용</span></div>
+        <div class="row"><b>입장</b><span>만 19세 이상 · 신분증 확인</span></div>
+        <div class="map-links">
+          <a href="https://map.naver.com" target="_blank" rel="noopener" class="btn btn--ghost" style="padding:11px 20px">네이버 지도</a>
+          <a href="https://map.kakao.com" target="_blank" rel="noopener" class="btn btn--ghost" style="padding:11px 20px">카카오맵</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="foot__brand">NOCTUR<b>N</b>E</div>
+      <small>심야 시그니처 칵테일 바 · 만 19세 이상<br>© 2026 NOCTURNE. 이피웹 제작 샘플.</small>
+    </div>
+    <div class="foot__sns">
+      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      <a href="#book">예약 문의</a>
+      <a href="tel:010-0000-0000">전화</a>
+    </div>
+  </div>
+</footer>
+
+<!-- 모바일 하단바 (PC 메인 CTA = 예약 문의 + 전화) -->
+<div class="mbar">
+  <a href="tel:010-0000-0000" class="m-call">전화</a>
+  <a href="#book" class="m-book">예약 문의</a>
+</div>
+
+<script>
+/* 실시간 영업 상태 (시간 기반) */
+(function(){
+  // [open, close(분, 24시 넘으면 >1440), lastOrder] · 0=일 1=월(휴무) 2=화...6=토
+  var H={0:[1020,1440,1410],2:[1080,1500,1470],3:[1080,1500,1470],4:[1080,1500,1470],5:[1080,1560,1530],6:[1080,1560,1530]};
+  function fmt(m){m=((m%1440)+1440)%1440;var h=Math.floor(m/60),mm=m%60;return (h<10?'0':'')+h+':'+(mm<10?'0':'')+mm;}
+  function todayLabel(day){var s=H[day];if(!s)return '휴무';return fmt(s[0])+' – '+fmt(s[1]);}
+  function compute(){
+    var d=new Date(),day=d.getDay(),now=d.getHours()*60+d.getMinutes();
+    function inSess(sd,off){var s=H[sd];if(!s)return null;var m=now+off;if(m>=s[0]&&m<s[1]){return m>=s[2]?'soon':'open';}return null;}
+    var r=inSess(day,0); if(r) return {st:r,day:day};
+    var y=(day+6)%7; var r2=inSess(y,1440); if(r2) return {st:r2,day:y};
+    if(!H[day]) return {st:'off',day:day};
+    if(now<H[day][0]) return {st:'before',day:day};
+    return {st:'closed',day:day};
+  }
+  function apply(){
+    var c=compute(), st=c.st, s=H[c.day];
+    var map={open:['open','영업 중'],soon:['soon','곧 라스트오더'],before:['closed','오늘 영업 전'],closed:['closed','영업 종료'],off:['closed','오늘 휴무']};
+    var m=map[st]||map.closed;
+    var today=H[new Date().getDay()];
+    var todayTxt=today?(fmt(today[0])+' – '+fmt(today[1])):'휴무 (월)';
+    var loTxt=today?('L.O '+fmt(today[2])):'—';
+    var sub={open:'지금 영업 중입니다. 편하게 방문해 주세요.',soon:'라스트오더가 가까워요. 서둘러 주세요.',before:'오늘은 곧 문을 엽니다.',closed:'오늘 영업은 종료되었습니다.',off:'월요일은 휴무입니다.'}[st];
+    ['navDot','navDot2','heroDot','cardDot'].forEach(function(id){var e=document.getElementById(id);if(e){e.className='dot '+m[0];}});
+    ['navStatus','navStatus2','heroStatus','cardStatus'].forEach(function(id){var e=document.getElementById(id);if(e)e.textContent=m[1];});
+    var ht=document.getElementById('heroToday'); if(ht) ht.textContent='오늘 '+todayTxt;
+    var cs=document.getElementById('cardSub'); if(cs) cs.textContent=sub;
+    var ct=document.getElementById('cardToday'); if(ct) ct.textContent=todayTxt;
+    var cl=document.getElementById('cardLo'); if(cl) cl.textContent=loTxt;
+  }
+  apply(); setInterval(apply,60000);
+})();
+
+/* 상단바 solid + 버거 */
+(function(){
+  var tb=document.getElementById('topbar');
+  function onScroll(){ tb.classList.toggle('solid', window.scrollY>40); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  var b=document.getElementById('burger'), dr=document.getElementById('drawer');
+  if(b&&dr){ b.addEventListener('click',function(){dr.classList.toggle('open');});
+    dr.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){dr.classList.remove('open');});}); }
+})();
+
+/* reveal + rescue */
+(function(){
+  if(window.matchMedia('(min-width:881px)').matches && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  }
+  function rv(){var els=document.querySelectorAll('.reveal:not(.in)');for(var i=0;i<els.length;i++){var r=els[i].getBoundingClientRect();if(r.top<innerHeight*0.92&&r.bottom>0)els[i].classList.add('in');}}
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)setTimeout(rv,60);});
+  window.addEventListener('load',function(){setTimeout(rv,1200);});
+})();
+
+/* 공통 폼 핸들러: 인페이지 성공/실패 + 중복제출 방지 (이피웹) */
+(function(){
+  var forms=document.querySelectorAll('form[action*="formspree.io"]');
+  forms.forEach(function(form){
+    var btn=form.querySelector('[type="submit"]');
+    var label=btn?btn.textContent:'';
+    var msg=document.createElement('p');
+    msg.setAttribute('role','status');
+    msg.style.cssText='grid-column:1/-1;margin:6px 0 0;font-size:.95rem;line-height:1.55;display:none;font-weight:500';
+    form.appendChild(msg);
+    function show(t,ok){msg.style.display='block';msg.style.color=ok?'#3DDC84':'#FF6B6B';msg.textContent=t;}
+    function reset(){if(btn){btn.disabled=false;btn.style.opacity='';btn.style.cursor='';btn.textContent=label;}}
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(btn){btn.disabled=true;btn.style.opacity='.6';btn.style.cursor='default';btn.textContent='보내는 중…';}
+      if(/YOUR_FORM_ID/.test(form.getAttribute('action')||'')){
+        setTimeout(function(){show('예약 문의가 접수되었습니다. 확인 후 연락드릴게요.',true);form.reset();reset();},700);return;
+      }
+      fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+        .then(function(r){if(r.ok){show('예약 문의가 접수되었습니다. 확인 후 연락드릴게요.',true);form.reset();}else{show('전송에 실패했어요. 전화로 문의해 주세요.',false);}})
+        .catch(function(){show('전송에 실패했어요. 전화로 문의해 주세요.',false);})
+        .finally(reset);
+    });
+  });
+})();
+</script>
+</body>
+</html>
