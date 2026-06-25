@@ -199,13 +199,13 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:54px 0 120p
 
 /* ===== FX START (NOCTURNE 효과 — 롤백: FX START~FX END 블록 3곳[CSS/HTML/JS] + ambience.mp3 삭제) ===== */
 .fx-orbs{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-.fx-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.30;mix-blend-mode:screen}
-.fx-orb.o1{width:48vw;height:48vw;background:radial-gradient(circle,rgba(203,168,106,.85),transparent 68%);top:-12vw;right:-8vw;animation:fxorb1 24s ease-in-out infinite alternate}
-.fx-orb.o2{width:42vw;height:42vw;background:radial-gradient(circle,rgba(46,140,111,.7),transparent 70%);bottom:-14vw;left:-10vw;animation:fxorb2 30s ease-in-out infinite alternate}
-.fx-orb.o3{width:34vw;height:34vw;background:radial-gradient(circle,rgba(150,45,62,.6),transparent 70%);top:36%;left:44%;animation:fxorb3 26s ease-in-out infinite alternate}
-@keyframes fxorb1{to{transform:translate(-8vw,10vh)}}
-@keyframes fxorb2{to{transform:translate(10vw,-8vh)}}
-@keyframes fxorb3{to{transform:translate(-12vw,-6vh) scale(1.15)}}
+.fx-orb{position:absolute;border-radius:50%;filter:blur(75px);opacity:.42;mix-blend-mode:screen}
+.fx-orb.o1{width:48vw;height:48vw;background:radial-gradient(circle,rgba(203,168,106,.9),transparent 68%);top:-12vw;right:-8vw;animation:fxorb1 13s ease-in-out infinite alternate}
+.fx-orb.o2{width:42vw;height:42vw;background:radial-gradient(circle,rgba(46,140,111,.78),transparent 70%);bottom:-14vw;left:-10vw;animation:fxorb2 16s ease-in-out infinite alternate}
+.fx-orb.o3{width:36vw;height:36vw;background:radial-gradient(circle,rgba(150,45,62,.7),transparent 70%);top:34%;left:42%;animation:fxorb3 14s ease-in-out infinite alternate}
+@keyframes fxorb1{to{transform:translate(-22vw,20vh) scale(1.1)}}
+@keyframes fxorb2{to{transform:translate(24vw,-16vh) scale(1.15)}}
+@keyframes fxorb3{to{transform:translate(-26vw,-14vh) scale(1.25)}}
 .fx-vignette{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse 100% 100% at 50% 42%,transparent 52%,rgba(0,0,0,.55) 100%)}
 .fx-grain{position:fixed;inset:0;z-index:3;pointer-events:none;opacity:.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:170px 170px;animation:fxgrain 5s steps(5) infinite}
 @keyframes fxgrain{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-2%)}75%{transform:translate(-2%,-3%)}100%{transform:translate(0,0)}}
